@@ -1,0 +1,246 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  password    String
+  role        String   @default("USER")
+  phone       String?
+  avatar      String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orders          Order[]
+  appointments    Appointment[]
+  reviews         Review[]
+  messagesSent    Message[]     @relation("SentMessages")
+  messagesRecv    Message[]     @relation("ReceivedMessages")
+  documents       Document[]
+  addresses       Address[]
+  paymentMethods  PaymentMethod[]
+  assignedOrders  Order[]       @relation("AssignedOrders")
+  assignedTasks   Appointment[] @relation("AssignedTechnician")
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  image       String?
+  categoryId  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  products    Product[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  stock       Int      @default(0)
+  images      String   // JSON string : ["url1", "url2"]
+  categoryId  String
+  rating      Float    @default(0)
+
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  reviews     Review[]
+  orderItems  OrderItem[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  userId        String
+  livreurId     String?
+  addressId     String?
+  status        String      @default("PENDING") // PENDING, ACCEPTED, EN_COURS, LIVRE, ANNULE
+  totalAmount   Float
+  paymentIntent String?
+  promoCodeId   String?
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  livreur       User?       @relation("AssignedOrders", fields: [livreurId], references: [id], onDelete: SetNull)
+  address       Address?    @relation(fields: [addressId], references: [id], onDelete: SetNull)
+  promoCode     PromoCode?  @relation(fields: [promoCodeId], references: [id], onDelete: SetNull)
+  items         OrderItem[]
+  payments      Payment[]
+
+  dateCommande  DateTime    @default(now())
+  dateLivraison DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float
+
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String?
+  userId    String
+  productId String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Restrict)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  basePrice   Float?
+  image       String?
+  isActive    Boolean  @default(true)
+  categoryId  String?
+
+  appointments  Appointment[]
+  category      ServiceCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Appointment {
+  id            String    @id @default(uuid())
+  userId        String
+  serviceId     String
+  status        String    @default("REQUESTED")
+  scheduledAt   DateTime?
+  locationLat   Float?
+  locationLng   Float?
+  address       String?
+  images        String?   // JSON string
+  notes         String?
+  technicianId  String?
+
+  user          User      @relation(fields: [userId], references: [id], onDelete: Restrict)
+  technician    User?     @relation("AssignedTechnician", fields: [technicianId], references: [id], onDelete: SetNull)
+  service       Service   @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Message {
+  id          String   @id @default(uuid())
+  senderId    String
+  receiverId  String
+  content     String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Restrict)
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Restrict)
+}
+
+model Document {
+  id             String    @id @default(uuid())
+  type           String    // DEVIS, FACTURE, BON_LIVRAISON, AVOIR, CONTRAT, BON_COMMANDE, PHOTO_INTERVENTION
+  numeroDocument String
+  dateEmission   DateTime  @default(now())
+  dateEcheance   DateTime?
+  montantHT      Float     @default(0)
+  montantTTC     Float     @default(0)
+  tva            Float     @default(0)
+  statut         String    @default("BROUILLON") // BROUILLON, ENVOYE, ACCEPTE, REFUSE, PAYE, ANNULE, ARCHIVE
+  fichierUrl     String?
+  notes          String?
+  userId         String?   // Le client ou administrateur associé
+  user           User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Address {
+  id          String   @id @default(uuid())
+  rue         String
+  ville       String
+  codePostal  String?
+  pays        String   @default("Maroc")
+  latitude    Float?
+  longitude   Float?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders      Order[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Payment {
+  id           String   @id @default(uuid())
+  montant      Float
+  methode      String   // card, paypal, cash
+  statut       String   @default("PENDING") // PENDING, SUCCESS, FAILED
+  orderId      String
+  order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  datePaiement DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PaymentMethod {
+  id        String   @id @default(uuid())
+  brand     String
+  last4     String
+  expMonth  String
+  expYear   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model PromoCode {
+  id                 String   @id @default(uuid())
+  code               String   @unique
+  discountPercentage Float
+  validUntil         DateTime?
+  isActive           Boolean  @default(true)
+  
+  orders             Order[]
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model ServiceCategory {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  services    Service[]
+}
