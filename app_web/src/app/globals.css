@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@import "tailwindcss";
+@source "../../tailwind.config.ts";
+
+
+:root {
+  --primary:        #1B4332;
+  --primary-light:  #2D6A4F;
+  --primary-dark:   #0F2B1F;
+  --accent:         #40916C;
+  --accent-light:   #52B788;
+  --bg:             #F4F6F4;
+  --surface:        #FFFFFF;
+  --border:         #E2E8E2;
+  --text:           #1A1A1A;
+  --text-muted:     #6B7280;
+  --text-light:     #9CA3AF;
+  --success:        #22C55E;
+  --warning:        #F59E0B;
+  --error:          #EF4444;
+  --sidebar-w:      220px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display { font-family: 'Playfair Display', serif; }
+
+
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5CB; border-radius: 10px; }
+
+/* Custom Premium Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes slow-pan {
+  0%, 100% { transform: scale(1.0) translate(0, 0); }
+  50% { transform: scale(1.08) translate(10px, -15px); }
+}
+.animate-slow-pan {
+  animation: slow-pan 25s infinite ease-in-out;
+}
+
+@keyframes leaf-drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
+}
