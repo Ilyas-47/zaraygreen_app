@@ -208,7 +208,7 @@ export default function ProductsPage() {
     ? products 
     : products.filter(p => p.category?.name === tab)
 
-  const TABS = ['Tous les produits', ...categories.map(c => c.name)]
+  const TABS = ['Tous les produits', ...Array.from(new Set(categories.map(c => c.name)))]
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', fontFamily: 'Inter, sans-serif' }}>
