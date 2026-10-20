@@ -42,14 +42,39 @@ Voici le catalogue :
 \n${catalogInfo}\n`;
 
       // 3. Format history for Gemini
-      const formattedHistory = (history || []).map((h: any) => ({
-        role: h.role === 'model' ? 'model' : 'user',
+      const rawHistory = history || [];
+      const sanitizedHistory: any[] = [];
+      
+      for (const h of rawHistory) {
+        const role = h.role === 'model' ? 'model' : 'user';
+        const text = h.text || '[Produit proposé]';
+        
+        if (sanitizedHistory.length === 0 && role === 'model') continue; // First message should be user
+        
+        if (sanitizedHistory.length > 0) {
+          const lastRole = sanitizedHistory[sanitizedHistory.length - 1].role;
+          if (role === lastRole) {
+            // Overwrite if it's the same role
+            sanitizedHistory[sanitizedHistory.length - 1].text = text;
+            continue;
+          }
+        }
+        sanitizedHistory.push({ role, text });
+      }
+
+      // Before calling sendMessage (which is a 'user' action), the history MUST end with 'model' or be empty
+      if (sanitizedHistory.length > 0 && sanitizedHistory[sanitizedHistory.length - 1].role === 'user') {
+        sanitizedHistory.pop();
+      }
+
+      const formattedHistory = sanitizedHistory.map(h => ({
+        role: h.role,
         parts: [{ text: h.text }]
       }));
 
       // 4. Call Gemini
       const model = ai.getGenerativeModel({ 
-        model: 'gemini-flash-latest',
+        model: 'gemini-3.5-flash-lite',
         systemInstruction: systemInstruction
       });
 

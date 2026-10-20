@@ -5,7 +5,7 @@ import { authenticate, isAdmin } from '../middlewares/auth'
 
 const router = Router()
 
-router.get('/', authenticate, categoryController.getAll)
+router.get('/', categoryController.getAll)
 router.post('/', authenticate, isAdmin, categoryController.create)
 router.put('/:id', authenticate, isAdmin, categoryController.update)
 router.delete('/:id', authenticate, isAdmin, categoryController.delete)

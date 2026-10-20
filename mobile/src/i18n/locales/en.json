@@ -1,0 +1,151 @@
+{
+  "splash": {
+    "brand": "ZARAY",
+    "sub": "GREEN"
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "getStarted": "Get Started",
+    "slide1": {
+      "title": "Premium Artificial Grass",
+      "description": "Transform your outdoor spaces with our high-quality, realistic artificial grass solutions."
+    },
+    "slide2": {
+      "title": "Professional Landscaping",
+      "description": "Expert design and maintenance services for your perfect garden oasis."
+    },
+    "slide3": {
+      "title": "Beautiful Plants & Trees",
+      "description": "Discover our curated collection of natural plants to bring life to your home."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your Zaray Green account.",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot": "Forgot Password?",
+      "button": "Sign In",
+      "noAccount": "Don't have an account? ",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join Zaray Green today.",
+      "name": "Full Name",
+      "email": "Email Address",
+      "password": "Password",
+      "button": "Sign Up",
+      "hasAccount": "Already have an account? ",
+      "loginLink": "Sign in"
+    }
+  },
+  "home": {
+    "greeting": "Good Morning,",
+    "guest": "Guest",
+    "search": "Search for plants, grass, services...",
+    "hero": {
+      "title": "Spring Sale",
+      "subtitle": "Up to 30% off on all natural plants",
+      "button": "Shop Now"
+    },
+    "categories": {
+      "title": "Categories",
+      "seeAll": "See All",
+      "c1": "Artificial Grass",
+      "c2": "Natural Grass",
+      "c3": "Plants",
+      "c4": "Vases & Pots",
+      "c5": "Decoration"
+    },
+    "featured": {
+      "title": "Featured Products"
+    }
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "description": "Description",
+    "reviews": "Reviews",
+    "qty": "Quantity",
+    "success": "Added to cart successfully!"
+  },
+  "cart": {
+    "title": "My Cart",
+    "empty": "Your cart is empty",
+    "emptySub": "Looks like you haven't added any products to your cart yet.",
+    "startShopping": "Start Shopping",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Proceed to Checkout"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "address": "Delivery Address",
+    "addressPlaceholder": "123 Green Avenue, NY 10001",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+1 234 567 8900",
+    "payment": "Payment Method",
+    "card": "Credit/Debit Card",
+    "cash": "Cash on Delivery",
+    "button": "Place Order",
+    "success": "Order placed successfully!"
+  },
+  "orders": {
+    "title": "Order History",
+    "total": "Total Amount",
+    "qty": "Qty:"
+  },
+  "services": {
+    "title": "Landscaping Services",
+    "subtitle": "Book professional landscaping experts.",
+    "quoteTitle": "Need a custom quote?",
+    "quoteDesc": "Upload photos of your garden and get a free estimation.",
+    "quoteBtn": "Request Quote",
+    "ourServices": "Our Services",
+    "bookNow": "Book Now",
+    "s1": {
+      "title": "Garden Maintenance",
+      "desc": "Regular pruning, weeding, and grass cutting for a beautiful garden year-round.",
+      "price": "From 500 MAD/mo"
+    },
+    "s2": {
+      "title": "Landscape Design",
+      "desc": "Complete redesign of your outdoor space with premium 3D modeling and plant selection.",
+      "price": "From 3000 MAD"
+    },
+    "s3": {
+      "title": "Artificial Grass Installation",
+      "desc": "Professional installation of premium artificial grass for balconies, terraces, or gardens.",
+      "price": "From 150 MAD/m²"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "guest": "Guest User",
+    "email": "Sign in to access your profile",
+    "personal": "Personal Information",
+    "addresses": "My Addresses",
+    "payment": "Payment Methods",
+    "settings": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "logout": "Log Out",
+    "login": "Sign In"
+  },
+  "tabs": {
+    "home": "Home",
+    "search": "Search",
+    "services": "Service",
+    "cart": "Cart",
+    "profile": "Profile"
+  },
+  "search": {
+    "suggestions": "Search Suggestions",
+    "browse": "Browse Categories",
+    "noResults": "No results found",
+    "tryDifferent": "Try different keywords or browse categories."
+  }
+}

@@ -56,5 +56,12 @@ export const documentsService = {
     return prisma.document.delete({
       where: { id }
     })
+  },
+
+  async updateStatus(id: string, statut: string) {
+    return prisma.document.update({
+      where: { id },
+      data: { statut }
+    })
   }
 }

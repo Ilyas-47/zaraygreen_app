@@ -17,6 +17,7 @@ import serviceCategoryRoutes from './routes/service-categories'
 import promoRoutes        from './routes/promo'
 import profileRoutes      from './routes/profile'
 import aiRoutes           from './routes/ai'
+import supportRoutes      from './routes/support'
 
 dotenv.config()
 
@@ -46,6 +47,7 @@ app.use('/api/service-categories', serviceCategoryRoutes)
 app.use('/api/promo',        promoRoutes)
 app.use('/api/profile',      profileRoutes)
 app.use('/api/ai',           aiRoutes)
+app.use('/api/support',      supportRoutes)
 
 // ── Health check ───────────────────────────────────────────
 app.get('/',            (_, res) => res.json({ message: '🌿 Zaray Green API is running' }))

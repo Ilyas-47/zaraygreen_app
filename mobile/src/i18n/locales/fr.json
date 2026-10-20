@@ -1,0 +1,151 @@
+{
+  "splash": {
+    "brand": "ZARAY",
+    "sub": "GREEN"
+  },
+  "onboarding": {
+    "skip": "Passer",
+    "next": "Suivant",
+    "getStarted": "Commencer",
+    "slide1": {
+      "title": "Gazon Artificiel Premium",
+      "description": "Transformez vos espaces extérieurs avec nos solutions de gazon artificiel réalistes et de haute qualité."
+    },
+    "slide2": {
+      "title": "Aménagement Paysager",
+      "description": "Services experts de conception et d'entretien pour votre oasis de jardin parfaite."
+    },
+    "slide3": {
+      "title": "Plantes & Arbres Magnifiques",
+      "description": "Découvrez notre collection sélectionnée de plantes naturelles pour donner vie à votre maison."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Bon retour",
+      "subtitle": "Connectez-vous à votre compte Zaray Green.",
+      "email": "Adresse Email",
+      "password": "Mot de passe",
+      "forgot": "Mot de passe oublié ?",
+      "button": "Se connecter",
+      "noAccount": "Vous n'avez pas de compte ? ",
+      "registerLink": "S'inscrire"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "subtitle": "Rejoignez Zaray Green aujourd'hui.",
+      "name": "Nom complet",
+      "email": "Adresse Email",
+      "password": "Mot de passe",
+      "button": "S'inscrire",
+      "hasAccount": "Vous avez déjà un compte ? ",
+      "loginLink": "Se connecter"
+    }
+  },
+  "home": {
+    "greeting": "Bonjour,",
+    "guest": "Invité",
+    "search": "Rechercher des plantes, gazons, services...",
+    "hero": {
+      "title": "Vente de Printemps",
+      "subtitle": "Jusqu'à 30% de réduction sur les plantes naturelles",
+      "button": "Acheter"
+    },
+    "categories": {
+      "title": "Catégories",
+      "seeAll": "Voir tout",
+      "c1": "Gazon Artificiel",
+      "c2": "Gazon Naturel",
+      "c3": "Plantes",
+      "c4": "Vases & Pots",
+      "c5": "Décoration"
+    },
+    "featured": {
+      "title": "Produits en vedette"
+    }
+  },
+  "product": {
+    "addToCart": "Ajouter au panier",
+    "description": "Description",
+    "reviews": "Avis",
+    "qty": "Quantité",
+    "success": "Ajouté au panier avec succès !"
+  },
+  "cart": {
+    "title": "Mon Panier",
+    "empty": "Votre panier est vide",
+    "emptySub": "Il semble que vous n'ayez pas encore ajouté de produits à votre panier.",
+    "startShopping": "Commencer vos achats",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "total": "Total",
+    "checkout": "Passer à la caisse"
+  },
+  "checkout": {
+    "title": "Caisse",
+    "address": "Adresse de livraison",
+    "addressPlaceholder": "123 Avenue Verte, Paris 75001",
+    "phone": "Numéro de téléphone",
+    "phonePlaceholder": "+33 6 12 34 56 78",
+    "payment": "Moyen de paiement",
+    "card": "Carte de Crédit/Débit",
+    "cash": "Paiement à la livraison",
+    "button": "Passer la commande",
+    "success": "Commande passée avec succès !"
+  },
+  "orders": {
+    "title": "Historique des commandes",
+    "total": "Montant total",
+    "qty": "Qté :"
+  },
+  "services": {
+    "title": "Services d'aménagement",
+    "subtitle": "Réservez des experts professionnels en aménagement paysager.",
+    "quoteTitle": "Besoin d'un devis ?",
+    "quoteDesc": "Téléchargez des photos de votre jardin et obtenez une estimation gratuite.",
+    "quoteBtn": "Demander un devis",
+    "ourServices": "Nos Services",
+    "bookNow": "Réserver",
+    "s1": {
+      "title": "Entretien de Jardin",
+      "desc": "Taille régulière, désherbage et tonte du gazon pour un beau jardin toute l'année.",
+      "price": "Dès 500 MAD/mois"
+    },
+    "s2": {
+      "title": "Conception Paysagère",
+      "desc": "Refonte complète de votre espace extérieur avec modélisation 3D premium.",
+      "price": "Dès 3000 MAD"
+    },
+    "s3": {
+      "title": "Installation Gazon Artificiel",
+      "desc": "Installation professionnelle de gazon artificiel premium pour balcons, terrasses ou jardins.",
+      "price": "Dès 150 MAD/m²"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "guest": "Utilisateur Invité",
+    "email": "Connectez-vous pour accéder à votre profil",
+    "personal": "Informations personnelles",
+    "addresses": "Mes adresses",
+    "payment": "Moyens de paiement",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "notifications": "Notifications",
+    "logout": "Se déconnecter",
+    "login": "Se connecter"
+  },
+  "tabs": {
+    "home": "Accueil",
+    "search": "Recherche",
+    "services": "Service",
+    "cart": "Panier",
+    "profile": "Profil"
+  },
+  "search": {
+    "suggestions": "Suggestions de recherche",
+    "browse": "Parcourir les catégories",
+    "noResults": "Aucun résultat trouvé",
+    "tryDifferent": "Essayez d'autres mots clés ou parcourez les catégories."
+  }
+}
